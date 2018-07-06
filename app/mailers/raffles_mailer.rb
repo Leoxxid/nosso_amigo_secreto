@@ -1,0 +1,2 @@
+class RafflesMailer < ApplicationMailer
+end
