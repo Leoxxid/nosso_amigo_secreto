@@ -14,3 +14,4 @@ class CampaignRaffleJob < ApplicationJob
       # Send mail to owner of campaign (desafio)
     #end
   end
+end
