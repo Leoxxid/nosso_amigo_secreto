@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="row home">
+  <div class="center">
+    <h4 class="title">Surpreenda no Amigo Secreto</h4>
+    <h5 class="subtitle">Crie a sua brincadeira apenas com o nome e email dos seus amigos</h5>
+    <h5 class="subtitle2">Rápido, fácil e garantido <i class="material-icons home-icon">favorite</i></h5>
+
+    <%= form_tag("/campaigns", method: "post") do %>
+      <%= submit_tag("Criar Agora", class: "waves-effect waves-light btn home-button") %>
+    <% end %>
+  </div>
+</div>
