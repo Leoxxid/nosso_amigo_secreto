@@ -43,4 +43,59 @@
     }
   }
 
+  .campaign{
+    .row{
+      margin-bottom: 0px;
+    }
+
+    .btn-actions{
+      margin-top: 20px;
+    }
+
+    .members{
+      margin-top: 20px;
+      .member{
+        .icon{
+          color: #aaa;
+          margin-top: 20px;
+        }
+        .opened{
+          color: #4CAF50 !important;
+        }
+      }
+      .add{
+        margin-right: 30px;
+        margin-top: -34px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        i{
+          font-size: 1.4rem;
+          line-height: 35px;
+        }
+      }
+    }
+    .members{
+      .member{
+        .icon{
+          color: #aaa;
+          margin-top: 20px;
+        }
+        .opened{
+          color: #4CAF50 !important;
+        }
+      }
+      .add{
+        margin-right: 30px;
+        margin-top: -34px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        i{
+          font-size: 1.4rem;
+          line-height: 35px;
+        }
+      }
+    }
+  }
 }

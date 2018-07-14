@@ -1,0 +1,112 @@
+<div class="row campaigns">
+  <div class="col s8 offset-s2">
+    <p class="title">Informações</p>
+  </div>
+
+  <div class="campaign">
+    <div class="row cards">
+      <div class="col s8 offset-s2">
+        <div class="card horizontal">
+          <div class="card-content col s12">
+            <%= form_for @campaign, url: {action: "update"}, html: {class: "col s12 update_campaign"} do |f| %>
+              <div class="row">
+                <div class="row">
+                  <div class="col s12 l4 input-field">
+                    <%= f.text_field :title, 'data-length': "20" %>
+                    <label for="title" class="<%= (@campaign.title)? 'active' : '' %>">Título</label>
+                  </div>
+                  <div class="col s12 l3 input-field">
+                    <%= f.date_field :event_date, class: 'datepicker' %>
+                    <label for="title" class="<%= (@campaign.event_date)? 'active' : '' %>">Data</label>
+                  </div>
+                  <div class="col s12 l2 input-field">
+                    <%= f.text_field :event_hour %>
+                    <label for="title" class="<%= (@campaign.event_hour)? 'active' : '' %>">Hora</label>
+                  </div>
+                  <div class="col s12 l3 input-field">
+                    <%= f.text_field :locale, 'data-length': "20" %>
+                    <label for="title" class="<%= (@campaign.locale)? 'active' : '' %>">Local</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 input-field">
+                    <%= f.text_field :description, 'data-length': "150" %>
+                    <label for="title" class="<%= (@campaign.description)? 'active' : '' %>">Descrição</label>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s8 offset-s2">
+      <p class="title">Membros</p>
+    </div>
+
+    <div class="row cards members">
+      <div class="col s8 offset-s2">
+        <div class="card horizontal">
+          <div class="card-content col s12">
+
+          <div class="member_list">
+            <% @campaign.members.each do |m| %>
+              <div class="member" id="member_<%= m.id %>">
+                <div class="row">
+                  <div class="col s12 m5 input-field">
+                    <input id="name" type="text" class="validate" value="<%= m.name %>">
+                    <label for="name" class="active">Nome</label>
+                  </div>
+                  <div class="col s12 m5 input-field">
+                    <input id="email" type="email" class="validate" value="<%= m.email %>">
+                    <label for="email" class="active" data-error="Formato incorreto">Email</label>
+                  </div>
+                  <div class="col s3 offset-s3 m1 input-field">
+                    <i class="material-icons icon <%= (m.open)? 'opened' : '' %>">visibility</i>
+                  </div>
+                  <div class="col s3 m1 input-field">
+                    <a href="#" class="remove_member" id="<%= m.id %>">
+                      <i class="material-icons icon">delete</i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <%= form_for(Member.new) do |f| %>
+            <div class="member">
+              <div class="row">
+                <%= f.hidden_field :campaign_id, value: @campaign.id %>
+                <div class="col s12 m5 input-field">
+                  <%= f.text_field :name %>
+                  <label for="name" class="active">Nome</label>
+                </div>
+                <div class="col s12 m5 input-field">
+                  <%= f.email_field :email, class: "validate" %>
+                  <label for="member[email]" class="active" data-error="Formato incorreto">Email</label>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row btn-actions">
+    <div class="col s12 center">
+      <div class="col s6 m3 offset-m3 l2 offset-l4">
+        <%= form_for @campaign, method: 'delete', html: {class: 'remove_campaign'} do |f| %>
+          <button type='submit' class="waves-effect waves-light btn grey">Remover</button>
+        <% end %>
+      </div>
+      <div class="col s6 m3 l3">
+        <%= form_tag(raffle_campaign_path(@campaign), method: 'post', class: 'raffle_campaign') do %>
+          <button type='submit' class="waves-effect waves-light btn red">Sortear e enviar</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
