@@ -38,6 +38,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (7.1.4)
     bcrypt (3.1.12)
     bindex (0.5.0)
@@ -53,6 +55,8 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.2)
     crass (1.0.4)
+    css_parser (1.6.0)
+      addressable
     devise (4.4.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -69,10 +73,15 @@ GEM
       railties (>= 3.0.0)
     ffaker (2.9.0)
     ffi (1.9.25)
+    foundation_emails (2.2.1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    htmlentities (4.3.4)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
+    inky-rb (1.3.7.2)
+      foundation_emails (~> 2)
+      nokogiri
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -102,6 +111,14 @@ GEM
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
+    premailer (1.11.1)
+      addressable
+      css_parser (>= 1.6.0)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.10.2)
+      actionmailer (>= 3, < 6)
+      premailer (~> 1.7, >= 1.7.9)
+    public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
     rack-protection (2.0.3)
@@ -214,12 +231,14 @@ DEPENDENCIES
   devise
   factory_bot_rails
   ffaker
+  inky-rb
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   material_icons
   materialize-sass
   pg (~> 0.18)
+  premailer-rails
   puma (~> 3.0)
   rails (~> 5.0.1)
   redis
