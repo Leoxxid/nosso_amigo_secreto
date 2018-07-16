@@ -1,9 +1,9 @@
-
 <div class="navbar-fixed">
   <nav class="top-nav">
     <div class="nav-wrapper col s12">
       <a href="/" class="brand-logo">
-        <img src="/assets/logo.png" alt="" class="logo-img">
+        <%= image_tag("logo.png", class: "logo-img") %>
+
         <span class="logo-title">
           Nosso Amigo Secreto
         </span>
@@ -38,3 +38,4 @@
     <li><a href="/users/sign_up">Criar Conta</a></li>
     <li><div class="divider"></div></li>
   <% end %>
+</ul>

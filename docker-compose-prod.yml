@@ -20,37 +20,29 @@ services:
       - 'redis'
       - 'app'
     build: .
-    command: bash start_jobs.sh
-    volumes:
-      - '.:/nosso_amigo_secreto'
+    command: bash start_jobs
     volumes_from:
       - box
+    env_file:
+      - '.env-prod'
 
   app:
     depends_on:
       - 'postgres'
       - 'redis'
     build: .
-    command: bash start.sh
+    command: bash start
     ports:
       - '3000:3000'
-    volumes:
-      - '.:/nosso_amigo_secreto'
     volumes_from:
     - box
-
-  mailcatcher:
-    image: yappabe/mailcatcher
-    ports:
-      - 1025:1025
-      - 1080:1080
+    env_file:
+    - '.env-prod'
 
   box:
     image: busybox
     volumes:
       - /box
-
-
 
 volumes:
   redis:
