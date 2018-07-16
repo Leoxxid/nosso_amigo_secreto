@@ -20,7 +20,7 @@ services:
       - 'redis'
       - 'app'
     build: .
-    command: bash start_jobs
+    command: bash start_jobs.sh
     volumes_from:
       - box
     env_file:
@@ -31,13 +31,24 @@ services:
       - 'postgres'
       - 'redis'
     build: .
-    command: bash start
+    command: bash start.sh
     ports:
       - '3000:3000'
     volumes_from:
     - box
     env_file:
     - '.env-prod'
+
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    links:
+      - app
+    ports:
+      - "80:80"
+
 
   box:
     image: busybox
