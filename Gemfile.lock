@@ -172,6 +172,9 @@ GEM
       rspec-expectations (~> 3.7.0)
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
+    rspec-sidekiq (3.0.3)
+      rspec-core (~> 3.0, >= 3.0.0)
+      sidekiq (>= 2.4.0)
     rspec-support (3.7.1)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
@@ -243,6 +246,7 @@ DEPENDENCIES
   rails (~> 5.0.1)
   redis
   rspec-rails (~> 3.5)
+  rspec-sidekiq
   sass-rails (~> 5.0)
   sidekiq
   spring
