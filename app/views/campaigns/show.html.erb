@@ -66,9 +66,23 @@
                     <i class="material-icons icon <%= (m.open)? 'opened' : '' %>">visibility</i>
                   </div>
                   <div class="col s3 m1 input-field">
-                    <a href="#" class="remove_member" id="<%= m.id %>">
+                    <a class="modal-trigger" href="#modal-member-<%= m.id %>">
                       <i class="material-icons icon">delete</i>
                     </a>
+                    <div id="modal-member-<%= m.id %>" class="modal">
+                      <div class="modal-content">
+                        <h4>Atenção</h4>
+                        <p>Você realmente deseja excluir "<%= m.name %>" do amigo secreto?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <a class="modal-close waves-effect waves-red btn-flat">
+                          Cancelar
+                        </a>
+                        <a class="modal-close waves-effect waves-green btn-flat remove_member" id="<%= m.id %>">
+                          Confirmar
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -33,6 +33,8 @@ $(document).on 'turbolinks:load', ->
           Materialize.toast('Problema na hora de incluir membro', 4000, 'red')
     return false
 
+  $(document).ready ->
+    $('.modal').modal()
 
 valid_email = (email) ->
   /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)
@@ -53,9 +55,25 @@ insert_member = (id, name, email) ->
           '<i class="material-icons icon">visibility</i>' +
         '</div>' +
         '<div class="col s3 m1 input-field">' +
-          '<a href="#" class="remove_member" id="' + id + '">' +
+          '<a class="modal-trigger" href="#modal-member-' + id + '">' +
             '<i class="material-icons icon">delete</i>' +
           '</a>' +
+          '<div id="modal-member-' + id + '" class="modal">' +
+            '<div class="modal-content">' +
+              '<h4>Atenção</h4>' +
+              '<p>Você realmente deseja excluir "' + name + '" do amigo secreto?</p>' +
+            '</div>' +
+            '<div class="modal-footer">' +
+              '<a class="modal-close waves-effect waves-red btn-flat">' +
+                'Cancelar' +
+              '</a>' +
+              '<a class="modal-close waves-effect waves-green btn-flat remove_member" id="' + id + '">' +
+                'Confirmar' +
+              '</a>' +
+            '</div>' +
+          '</div>' +
         '</div>' +
       '</div>' +
     '</div>')
+
+  $('#modal-member-' + id ).modal()
