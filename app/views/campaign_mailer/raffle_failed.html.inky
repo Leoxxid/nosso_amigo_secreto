@@ -1,0 +1,50 @@
+<container class="body-drip">
+  <spacer size="16"></spacer>
+
+  <!-- <center> -->
+    <row>
+      <columns large="2">
+      </columns>
+      <columns large="1" class="center">
+        <img src="http://localhost:3000/assets/logo.png" alt="">
+      </columns>
+      <columns large="8">
+        <h4>Nosso Amigo Secreto</h4>
+      </columns>
+    </row>
+  <!-- </center> -->
+
+  <spacer size="16"></spacer>
+
+
+  <hr/>
+
+  <row>
+    <columns>
+      <spacer size="4"></spacer>
+      <p class="text-center">Olá <%= @owner.name %>, infelizemente ocorreu um erro ao sortear a campanha <%= @campaign.title %>.</p>
+      <spacer size="8"></spacer>
+      <center>
+        <button href="<%= @campaign_link %>" class="" >Terntar novamente</button>
+      </center>
+    </columns>
+  </row>
+
+
+  <wrapper class="secondary">
+
+    <spacer size="16"></spacer>
+
+    <row>
+      <h5 class="text-center">Se conecte com a gente</h5>
+    </row>
+
+    <row>
+      <columns large="6">
+        <button class="facebook expand" href="https://www.facebook.com/onebitcode/">Facebook</button>
+      </columns>
+      <columns large="6">
+        <button class="twitter expand" href="https://twitter.com/onebitcode">Twitter</button>
+      </columns>
+    </row>
+  </wrapper>

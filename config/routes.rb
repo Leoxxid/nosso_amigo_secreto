@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'pages/home'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  # mount Sidekiq::Web => '/sidekiq'
+  mount Sidekiq::Web => '/sidekiq'
 
   root to: 'pages#home'
   resources :campaigns, except: [:new] do

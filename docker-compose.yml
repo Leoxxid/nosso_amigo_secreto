@@ -37,7 +37,7 @@ services:
     volumes:
       - '.:/nosso_amigo_secreto'
     volumes_from:
-    - box
+      - box
 
   mailcatcher:
     image: yappabe/mailcatcher
