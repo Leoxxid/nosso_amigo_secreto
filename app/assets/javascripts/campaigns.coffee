@@ -1,5 +1,5 @@
 $(document).on 'turbolinks:load', ->
-  $('.update_campaign input').bind 'blur', ->
+  $('.update_campaign input').on 'blur', ->
     $('.update_campaign').submit()
 
   $('.update_campaign').on 'submit', (e) ->
